@@ -27,6 +27,8 @@ class LibnameConan(ConanFile):
         cmake.definitions["ZSTD_BUILD_STATIC"] = not self.options.shared
         cmake.definitions["ZSTD_BUILD_SHARED"] = self.options.shared
         cmake.definitions["CMAKE_INSTALL_PREFIX"] = self.package_folder
+        if self.settings.arch == 'x86':
+            cmake.definitions["CMAKE_C_FLAGS"] = "-m32"
         cmake.configure(source_dir="sources/build/cmake")
         cmake.build()
         cmake.install()

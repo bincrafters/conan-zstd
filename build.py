@@ -60,7 +60,6 @@ if __name__ == "__main__":
     upload = "https://api.bintray.com/conan/{0}/public-conan".format(username)
 
     builder = ConanMultiPackager(
-        archs=['x86_64'],
         username=username,
         channel=channel,
         reference=reference,
