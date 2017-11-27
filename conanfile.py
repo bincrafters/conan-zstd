@@ -27,8 +27,12 @@ class LibnameConan(ConanFile):
         cmake.definitions["ZSTD_BUILD_STATIC"] = not self.options.shared
         cmake.definitions["ZSTD_BUILD_SHARED"] = self.options.shared
         cmake.definitions["CMAKE_INSTALL_PREFIX"] = self.package_folder
-        if self.settings.arch == 'x86':
+        if self.settings.arch == 'x86' and self.settings.compiler != 'Visual Studio':
             cmake.definitions["CMAKE_C_FLAGS"] = "-m32"
+
+        if self.settings.compiler == 'Visual Studio':
+            cmake.definitions["CMAKE_C_FLAGS"] = '/{0}'.format(self.settings.compiler.runtime)
+
         cmake.configure(source_dir="sources/build/cmake")
         cmake.build()
         cmake.install()

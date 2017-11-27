@@ -4,12 +4,12 @@
 #include <cstdlib>
 #include <iostream>
 
-constexpr auto buffer_size = 1024;
+#define BUFFER_SIZE 1024
 
 int main()
 {
-    std::array<char, buffer_size> uncompressed{"hello"};
-    std::array<char, buffer_size> compressed;
+    std::array<char, BUFFER_SIZE> uncompressed{"hello"};
+    std::array<char, BUFFER_SIZE> compressed;
 
     const auto compression_result = ZSTD_compress(uncompressed.data(), uncompressed.size(), compressed.data(), compressed.size(), 1);
     if (ZSTD_isError(compression_result)) {

@@ -6,6 +6,11 @@ set(CMAKE_VERBOSE_MAKEFILE TRUE)
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
+if (MSVC)
+  set(CMAKE_CXX_FLAGS_RELEASE "/MD")
+  set(CMAKE_CXX_FLAGS_DEBUG "/MDd")
+endif()
+
 file(GLOB SOURCE_FILES *.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
