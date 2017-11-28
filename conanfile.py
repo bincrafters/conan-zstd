@@ -15,7 +15,7 @@ class LibnameConan(ConanFile):
     options = {"shared": [True, False]}
     default_options = "shared=False"
     exports_sources = ['CMakeLists.txt']
-    generators = ['cmake', 'txt']
+    generators = 'cmake'
 
     def source(self):
         source_url = "https://github.com/facebook/zstd"
@@ -35,6 +35,7 @@ class LibnameConan(ConanFile):
         cmake.install()
 
     def package(self):
+        # files are copied by cmake.install()
         pass
 
     def package_info(self):
