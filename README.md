@@ -1,6 +1,6 @@
 [ ![Download](https://api.bintray.com/packages/bincrafters/public-conan/zstd%3Abincrafters/images/download.svg) ](https://bintray.com/bincrafters/public-conan/zstd%3Abincrafters/_latestVersion)
-[![Build Status](https://travis-ci.org/bincrafters/conan-zstd.svg?branch=stable%2F0.0.0)](https://travis-ci.org/bincrafters/conan-zstd)
-[![Build status](https://ci.appveyor.com/api/projects/status/sxs9n6vb8nqa92l5?svg=true)]()
+[![Build Status](https://travis-ci.org/bincrafters/conan-zstd.svg?branch=stable%2F1.3.2)](https://travis-ci.org/bincrafters/conan-zstd)
+[![Build status](https://ci.appveyor.com/api/projects/status/5976u5yqgl45ngf7?svg=true)](https://ci.appveyor.com/project/BinCrafters/conan-zstd)
 
 [Conan.io](https://conan.io) package for [zstd](https://github.com/facebook/zstd) project
 
@@ -10,14 +10,14 @@ The packages generated with this **conanfile** can be found in [Bintray](https:/
 
 ### Basic setup
 
-    $ conan install zstd/1.3.2@bincrafters/testing
+    $ conan install zstd/1.3.2@bincrafters/stable
 
 ### Project setup
 
 If you handle multiple dependencies in your project is better to add a *conanfile.txt*
 
     [requires]
-    zstd/1.3.2/@bincrafters/testing
+    zstd/1.3.2/@bincrafters/stable
 
     [generators]
     txt
@@ -36,7 +36,7 @@ The example below shows the commands used to publish to bincrafters conan reposi
 
 The following command both runs all the steps of the conan file, and publishes the package to the local system cache.  This includes downloading dependencies from "build_requires" and "requires" , and then running the build() method.
 
-    $ conan create bincrafters/testing
+    $ conan create bincrafters/stable
 
 ## Add Remote
 
@@ -44,7 +44,7 @@ The following command both runs all the steps of the conan file, and publishes t
 
 ## Upload
 
-    $ conan upload zstd/1.3.2@bincrafters/testing --all -r bincrafters
+    $ conan upload zstd/1.3.2@bincrafters/stable --all -r bincrafters
 
 ## License
 [BSD](LICENSE)
