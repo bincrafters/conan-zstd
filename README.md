@@ -47,4 +47,4 @@ The following command both runs all the steps of the conan file, and publishes t
     $ conan upload zstd/1.3.2@bincrafters/testing --all -r bincrafters
 
 ## License
-[LICENSE_TYPE](LICENSE)
+[BSD](LICENSE)
