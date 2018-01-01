@@ -10,10 +10,11 @@ class LibnameConan(ConanFile):
     version = "1.3.2"
     url = "https://github.com/bincrafters/conan-zstd"
     description = "Zstandard - Fast real-time compression algorithm"
-    license = "https://raw.githubusercontent.com/facebook/zstd/dev/LICENSE"
+    license = "BSD"
     settings = "os", "arch", "compiler", "build_type"
     options = {"shared": [True, False]}
     default_options = "shared=False"
+    exports = ["LICENSE.md"]
     exports_sources = ['CMakeLists.txt']
     generators = 'cmake'
 
