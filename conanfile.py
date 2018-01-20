@@ -37,8 +37,8 @@ class ZstdConan(ConanFile):
         cmake.install()
 
     def package(self):
-        # files are copied by cmake.install()
-        pass
+        self.copy(pattern="LICENSE", dst="license", src=self.source_subfolder)
+        # all other files are copied by cmake.install()
 
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)
