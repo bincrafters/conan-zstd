@@ -7,7 +7,7 @@ import os
 
 class ZstdConan(ConanFile):
     name = "zstd"
-    version = "1.3.3"
+    version = "1.3.4"
     url = "https://github.com/bincrafters/conan-zstd"
     description = "Zstandard - Fast real-time compression algorithm"
     license = "BSD"
