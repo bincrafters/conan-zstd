@@ -36,6 +36,7 @@ class ZstdConan(ConanFile):
 
     def configure_cmake(self):
         cmake = CMake(self)
+        cmake.definitions["CMAKE_INSTALL_LIBDIR"] = "lib"
         cmake.definitions["ZSTD_BUILD_PROGRAMS"] = False
         cmake.definitions["ZSTD_BUILD_STATIC"] = not self.options.shared
         cmake.definitions["ZSTD_BUILD_SHARED"] = self.options.shared
