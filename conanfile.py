@@ -7,7 +7,7 @@ from conans import ConanFile, CMake, tools
 
 class ZstdConan(ConanFile):
     name = "zstd"
-    version = "1.3.5"
+    version = "1.3.8"
     url = "https://github.com/bincrafters/conan-zstd"
     homepage = "https://github.com/facebook/zstd"
     description = "Zstandard - Fast real-time compression algorithm"
