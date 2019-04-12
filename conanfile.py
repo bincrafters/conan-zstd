@@ -13,7 +13,7 @@ class ZstdConan(ConanFile):
     description = "Zstandard - Fast real-time compression algorithm"
     author = "Bincrafters <bincrafters@gmail.com>"
     topics = ("conan", "zstd", "compression", "algorithm", "decoder")
-    license = "BSD"
+    license = "BSD-3-Clause"
     exports = ["LICENSE.md"]
     exports_sources = ['CMakeLists.txt']
     generators = 'cmake'
@@ -23,7 +23,8 @@ class ZstdConan(ConanFile):
     _source_subfolder = "source_subfolder"
 
     def source(self):
-        tools.get("{0}/archive/v{1}.tar.gz".format(self.homepage, self.version))
+        sha256 = "90d902a1282cc4e197a8023b6d6e8d331c1fd1dfe60f7f8e4ee9da40da886dc3"
+        tools.get("{0}/archive/v{1}.tar.gz".format(self.homepage, self.version), sha256=sha256)
         extracted_dir = self.name + "-" + self.version
         os.rename(extracted_dir, self._source_subfolder)
 
@@ -34,7 +35,7 @@ class ZstdConan(ConanFile):
     def configure(self):
         del self.settings.compiler.libcxx
 
-    def configure_cmake(self):
+    def _configure_cmake(self):
         cmake = CMake(self)
         cmake.definitions["ZSTD_BUILD_PROGRAMS"] = False
         cmake.definitions["ZSTD_BUILD_STATIC"] = not self.options.shared
@@ -43,12 +44,12 @@ class ZstdConan(ConanFile):
         return cmake
 
     def build(self):
-        cmake = self.configure_cmake()
+        cmake = self._configure_cmake()
         cmake.build()
 
     def package(self):
         self.copy(pattern="LICENSE", dst="licenses", src=self._source_subfolder)
-        cmake = self.configure_cmake()
+        cmake = self._configure_cmake()
         cmake.install()
 
     def package_info(self):
