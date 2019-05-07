@@ -7,7 +7,7 @@ from conans import ConanFile, CMake, tools
 
 class ZstdConan(ConanFile):
     name = "zstd"
-    version = "1.3.8"
+    version = "1.4.0"
     url = "https://github.com/bincrafters/conan-zstd"
     homepage = "https://github.com/facebook/zstd"
     description = "Zstandard - Fast real-time compression algorithm"
@@ -23,7 +23,7 @@ class ZstdConan(ConanFile):
     _source_subfolder = "source_subfolder"
 
     def source(self):
-        sha256 = "90d902a1282cc4e197a8023b6d6e8d331c1fd1dfe60f7f8e4ee9da40da886dc3"
+        sha256 = "63be339137d2b683c6d19a9e34f4fb684790e864fee13c7dd40e197a64c705c1"
         tools.get("{0}/archive/v{1}.tar.gz".format(self.homepage, self.version), sha256=sha256)
         extracted_dir = self.name + "-" + self.version
         os.rename(extracted_dir, self._source_subfolder)
